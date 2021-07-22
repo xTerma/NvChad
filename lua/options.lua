@@ -71,6 +71,22 @@ end
 vim.cmd [[ au TermOpen term://* setlocal nonumber norelativenumber ]]
 vim.cmd [[let hidden_statusline = luaeval('require("chadrc").ui.hidden_statusline') | autocmd BufEnter,BufWinEnter,WinEnter,CmdwinEnter,TermEnter * nested if index(hidden_statusline, &ft) >= 0 | set laststatus=0 | else | set laststatus=2 | endif]]
 
+-- Hide line numbers , statusline in specific buffers!
+vim.cmd [[ au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif ]]
+
+-- Terminal settings
+vim.cmd [[ au TermOpen term://* setlocal nonumber laststatus=0 ]]
+vim.cmd [[ au TermClose term://* bd! ]]
+
+-- User relative & absolutely line numbers in 'n' & 'i' modes respectively
+vim.cmd [[ au InsertEnter * set norelativenumber ]]
+vim.cmd [[ au InsertLeave * set relativenumber ]]
+
+-- Latex utilities, auto. compile on save, auto. clean on exit
+vim.cmd [[ au BufEnter,BufRead,BufNewFile *.tex :set spell filetype=tex ]]
+vim.cmd [[ au BufWritePost *.tex silent !compiler.sh % ]]
+vim.cmd [[ au BufDelete,VimLeave *.tex silent !texclear.sh % ]]
+
 -- Open a file from its last left off position
 -- vim.cmd [[ au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]]
 -- File extension specific tabbing
