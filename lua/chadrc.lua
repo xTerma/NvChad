@@ -28,6 +28,7 @@ M.options = {
    timeoutlen = 400,
    clipboard = "unnamedplus",
    number = true,
+   relativenumber = true,
    numberwidth = 2,
    expandtab = true,
    shiftwidth = 2,

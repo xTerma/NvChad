@@ -27,7 +27,7 @@ opt.fillchars = { eob = " " }
 -- Numbers
 opt.number = options.number
 opt.numberwidth = options.numberwidth
--- opt.relativenumber = true
+opt.relativenumber = options.relativenumber
 
 -- Indenline
 opt.expandtab = options.expandtab
