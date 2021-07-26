@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 local M = {}
 
 -- 1st arg as current theme, 2nd as new theme
