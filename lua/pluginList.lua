@@ -135,7 +135,7 @@ return packer.startup(
 
         use {
             "nvim-lua/plenary.nvim",
-            event = "BufRead"
+            -- event = "BufRead"
         }
         use {
             "nvim-lua/popup.nvim",
